@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +21,10 @@ Route::get('/', function () {
 
 //Praktikum 1 PWL
 
-Route::get('/hello', function () { 
-    return 'Hello World'; 
-    }); 
+// Route::get('/hello', function () { 
+//     return 'Hello World'; 
+//     })
+Route::get('/hello', [WelcomeController::class, 'hello']);
 
 Route::get('/world', function () { 
     return 'World'; 
@@ -30,6 +33,7 @@ Route::get('/world', function () {
 Route::get('/', function () { 
     return 'Selamat Datang'; 
     });
+Route::get('/',[WelcomeController::class, '/']);
 
 Route::get('/about', function () { 
     return '2241760089|Hilmy Zaky Mustakim'; 
@@ -47,3 +51,11 @@ Route::get('/posts/{post}/comments/{comment}', function
 Route::get('/user/{name?}', function ($name='John') {
     return 'Nama saya '.$name; 
 });
+
+
+//Praktikum 2
+Route::get('/hello', [WelcomeController::class, 'hello']);
+
+Route::get('/index', [PageController::class, 'index']);
+Route::get('/about',[PageController::class,'about']);
+Route::get('/articles/{id}', [PageController::class, 'articles']);
