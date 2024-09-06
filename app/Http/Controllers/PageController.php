@@ -13,6 +13,6 @@ class PageController extends Controller
         return '2241760089|Hilmy Zaky Mustakim';
     }
     public function articles($getId){
-        return 'Urutan yang ke-'.$getId;
+        return 'Halaman Artikel dengan Id-'.$getId;
     }
 }
